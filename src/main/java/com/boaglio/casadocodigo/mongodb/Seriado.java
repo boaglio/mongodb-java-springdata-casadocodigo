@@ -1,9 +1,8 @@
-package com.boaglio.casadocodigo.mongodb.model;
+package com.boaglio.casadocodigo.mongodb;
 
 import java.io.Serializable;
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,16 +12,16 @@ public class Seriado implements Serializable {
 	private static final long serialVersionUID = -2944144005656142035L;
 
 	@Id
-	private ObjectId id;
+	private String id;
 
 	private String nome;
 	private List<String> personagens;
 
-	public ObjectId getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(ObjectId id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -46,7 +45,6 @@ public class Seriado implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (id == null ? 0 : id.hashCode());
 		result = prime * result + (nome == null ? 0 : nome.hashCode());
 		return result;
 	}
@@ -57,9 +55,6 @@ public class Seriado implements Serializable {
 		if (obj == null) { return false; }
 		if (getClass() != obj.getClass()) { return false; }
 		Seriado other = (Seriado) obj;
-		if (id == null) {
-			if (other.id != null) { return false; }
-		} else if (!id.equals(other.id)) { return false; }
 		if (nome == null) {
 			if (other.nome != null) { return false; }
 		} else if (!nome.equals(other.nome)) { return false; }

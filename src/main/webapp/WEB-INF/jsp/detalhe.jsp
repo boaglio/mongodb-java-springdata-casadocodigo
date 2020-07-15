@@ -72,7 +72,7 @@
  </c:otherwise>
 </c:choose>
 
-  <form method="post" action="index.jsp">
+  <form method="get" action="/home">
    <input class="btn btn-primary btn-lg" type="submit" value="lista de seriados" />
   </form>
 

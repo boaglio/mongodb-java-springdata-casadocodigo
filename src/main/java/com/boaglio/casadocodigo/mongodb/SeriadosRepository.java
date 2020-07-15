@@ -1,16 +1,13 @@
-package com.boaglio.casadocodigo.mongodb.repository;
+package com.boaglio.casadocodigo.mongodb;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
-
-import com.boaglio.casadocodigo.mongodb.model.Seriado;
 
 @Repository
 public class SeriadosRepository {
@@ -31,7 +28,7 @@ public class SeriadosRepository {
 		Seriado seriado = new Seriado();
 		System.out.println("busca por id = " + id);
 
-		Query queryDeBuscaPorID = new Query(Criteria.where("id").is(id));
+		Query queryDeBuscaPorID = new Query(Criteria.where("_id").is(id));
 
 		seriado = mongoTemplate.findOne(queryDeBuscaPorID,Seriado.class);
 
@@ -57,7 +54,7 @@ public class SeriadosRepository {
 	public void remove(String id) {
 
 		Seriado seriadoParaRemover = new Seriado();
-		seriadoParaRemover.setId(new ObjectId(id));
+		seriadoParaRemover.setId(id);
 		mongoTemplate.remove(seriadoParaRemover);
 
 		System.out.println("seriado removido = " + id);

@@ -15,7 +15,6 @@
   <img src="${pageContext.request.contextPath}/resources/tv.png" alt="logo" width="100"/>
   <h1>Meus seriados preferidos</h1>
 
-
  <c:choose>
  <c:when test="${msg =='add'}">
   <br/>
@@ -25,7 +24,7 @@
  <c:otherwise>
 
   <div class="alert alert-success" role="alert">Novo seriado</div>
-   <form:form method="post" commandName="seriado" action="adicionar" >
+   <form:form method="post" action="adicionar" >
 
    <p>
     <div class="input-group">
@@ -63,7 +62,7 @@
   </form:form>
  </c:otherwise>
 </c:choose>
-  <form method="post" action="index.jsp">
+  <form method="get" action="/home">
    <input class="btn btn-primary btn-lg" type="submit" value="lista de seriados" />
   </form>
   </div>
